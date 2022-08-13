@@ -1,0 +1,57 @@
+[
+    {
+        "title":"Reduce Stress",
+        "thumbnail": "mock_topic/topics/thumb1.svg",
+        "color": "0xFF808AFF",
+        "titleColor": "0xFFFFECCC"
+    },
+    {
+        "title":"Improve Performanee",
+        "thumbnail": "mock_topic/topics/thumb2.svg",
+        "color": "0xFFFA6E5A",
+        "titleColor": "0xFFFEF9F3"
+    },
+    {
+        "title":"Increase Happiness",
+        "thumbnail": "mock_topic/topics/thumb3.svg",
+        "color": "0xFFFEB18F",
+        "titleColor": "0xFF3F4553"
+    },
+    {
+        "title":"Reduce Anxiety",
+        "thumbnail": "mock_topic/topics/thumb4.svg",
+        "color": "0xFFFFCF86",
+        "titleColor": "0xFF3F414E"
+    },
+    {
+        "title":"Personal Growth",
+        "thumbnail": "mock_topic/topics/thumb5.svg",
+        "color": "0xFF6CB28E",
+        "titleColor": "0xFFFFECCC"
+    },
+    {
+        "title":"Better Sleep",
+        "thumbnail": "mock_topic/topics/thumb6.svg",
+        "color": "0xFF3F414E",
+        "titleColor": "0xFFEBEAEC"
+    },
+    {
+        "title":"Satified",
+        "thumbnail": "mock_topic/topics/thumb7.svg",
+        "color": "0xFFFFDCBA",
+        "titleColor": "0xFFCCCAAB"
+    },
+    {
+        "title":"Reduce Life",
+        "thumbnail": "mock_topic/topics/thumb1.svg",
+        "color": "0xFF128AFF",
+        "titleColor": "0xFF88ECCC"
+    },
+    {
+        "title":"Improve Venue",
+        "thumbnail": "mock_topic/topics/thumb2.svg",
+        "color": "0xFFF4FE5A",
+        "titleColor": "0xFFF569F3"
+    }
+
+]

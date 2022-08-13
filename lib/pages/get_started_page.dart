@@ -2,31 +2,64 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:meditation/utils/theme.dart';
+import 'package:meditation/widgets/responsive_builder.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'choose_topic_page.dart';
+
+class GetStartedPage extends StatelessWidget {
+  const GetStartedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final orientation = MediaQuery.of(context).orientation;
-    final size = MediaQuery.of(context).size;
+    final size = context.screenSize;
     return Scaffold(
       backgroundColor: kColorPrimary,
       body: SafeArea(
-        child: orientation == Orientation.portrait
-            ? Stack(
+          child: ResponsiveBuilder(
+        portrait: Stack(
+          children: [
+            const GetStartedBackgroud(),
+            const FractionallySizedBox(
+              heightFactor: 0.35,
+              child: GetStartedHeader(),
+            ),
+            Align(
+              alignment: const Alignment(0.0, 0.8),
+              child: GetStartedButton(
+                fixedSize: MaterialStateProperty.all(
+                  Size(
+                    size.width * 0.9,
+                    size.height * 0.07,
+                  ),
+                ),
+                textStyle: MaterialStateProperty.all(
+                  PrimaryFont.medium(size.height * 0.015),
+                ),
+              ),
+            ),
+          ],
+        ),
+        landscape: Row(
+          children: [
+            const Expanded(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: FractionallySizedBox(
+                  heightFactor: 0.7,
+                  child: GetStartedHeader(),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Stack(
                 children: [
                   const GetStartedBackgroud(),
-                  const FractionallySizedBox(
-                    heightFactor: 0.35,
-                    child: GetStartedHeader(),
-                  ),
                   Align(
                     alignment: const Alignment(0.0, 0.8),
                     child: GetStartedButton(
                       fixedSize: MaterialStateProperty.all(
                         Size(
-                          size.width * 0.9,
+                          size.width * 0.4,
                           size.height * 0.07,
                         ),
                       ),
@@ -36,42 +69,11 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
-            : Row(
-                children: [
-                  const Expanded(
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: FractionallySizedBox(
-                        heightFactor: 0.7,
-                        child: GetStartedHeader(),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        const GetStartedBackgroud(),
-                        Align(
-                          alignment: const Alignment(0.0, 0.8),
-                          child: GetStartedButton(
-                            fixedSize: MaterialStateProperty.all(
-                              Size(
-                                size.width * 0.4,
-                                size.height * 0.07,
-                              ),
-                            ),
-                            textStyle: MaterialStateProperty.all(
-                              PrimaryFont.medium(size.height * 0.015),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
-      ),
+            ),
+          ],
+        ),
+      )),
     );
   }
 }
@@ -89,7 +91,9 @@ class GetStartedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed('$ChooseTopicPage');
+      },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(kColorLightGray),
         shape: MaterialStateProperty.all(
@@ -114,11 +118,11 @@ class GetStartedBackgroud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orientation = MediaQuery.of(context).orientation;
     return Align(
         alignment: Alignment.bottomCenter,
         child: FractionallySizedBox(
-            heightFactor: orientation == Orientation.portrait ? 0.6 : 0.9,
+            heightFactor:
+                context.orientation == Orientation.portrait ? 0.6 : 0.9,
             widthFactor: 1,
             child: FittedBox(
                 fit: BoxFit.cover,

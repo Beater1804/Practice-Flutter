@@ -1,9 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meditation/pages/choose_topic_page.dart';
 import 'package:meditation/utils/theme.dart';
 
-import 'pages/home_page.dart';
+import 'pages/get_started_page.dart';
 
 void main() {
   runApp(
@@ -29,7 +30,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kColorPrimary,
       ),
-      home: const HomePage(),
+      // home: const GetStartedPage(),
+      initialRoute: '$GetStartedPage',
+      routes: {
+        '$GetStartedPage': (_) => const GetStartedPage(),
+        '$ChooseTopicPage': (_) => const ChooseTopicPage(),
+      },
     );
   }
 }
